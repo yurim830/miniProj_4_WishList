@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var myWishListButton: UIButton!
     
-    
+    var currentProduct: Product? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,8 +39,5 @@ class MainViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
-    
-    // MARK: - Constraints
     
 }

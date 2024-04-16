@@ -13,7 +13,6 @@ struct Product: Codable {
     let description: String
     let factoryPrice: Int
     let discountPercentage: Float
-    let catagory: String
     let thumbnail: String
     
     enum CodingKeys: String, CodingKey {
@@ -22,7 +21,6 @@ struct Product: Codable {
         case description
         case factoryPrice = "price"
         case discountPercentage
-        case catagory
         case thumbnail
     }
 }
