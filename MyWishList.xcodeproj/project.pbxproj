@@ -15,7 +15,7 @@
 		1A15CB4F2BCE51960075B529 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A15CB4E2BCE51960075B529 /* Assets.xcassets */; };
 		1A15CB522BCE51960075B529 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1A15CB512BCE51960075B529 /* Base */; };
 		1A15CB5A2BCE643A0075B529 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A15CB592BCE643A0075B529 /* MainViewController.swift */; };
-		1A15CB5F2BCE74BF0075B529 /* Products.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A15CB5E2BCE74BF0075B529 /* Products.swift */; };
+		1A15CB5F2BCE74BF0075B529 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A15CB5E2BCE74BF0075B529 /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		1A15CB512BCE51960075B529 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A15CB532BCE51960075B529 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A15CB592BCE643A0075B529 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		1A15CB5E2BCE74BF0075B529 /* Products.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Products.swift; sourceTree = "<group>"; };
+		1A15CB5E2BCE74BF0075B529 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				1A15CB4B2BCE51940075B529 /* MyWishList.xcdatamodeld */,
-				1A15CB5E2BCE74BF0075B529 /* Products.swift */,
+				1A15CB5E2BCE74BF0075B529 /* Product.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,7 +174,7 @@
 				1A15CB4D2BCE51940075B529 /* MyWishList.xcdatamodeld in Sources */,
 				1A15CB472BCE51940075B529 /* ViewController.swift in Sources */,
 				1A15CB432BCE51940075B529 /* AppDelegate.swift in Sources */,
-				1A15CB5F2BCE74BF0075B529 /* Products.swift in Sources */,
+				1A15CB5F2BCE74BF0075B529 /* Product.swift in Sources */,
 				1A15CB452BCE51940075B529 /* SceneDelegate.swift in Sources */,
 				1A15CB5A2BCE643A0075B529 /* MainViewController.swift in Sources */,
 			);
