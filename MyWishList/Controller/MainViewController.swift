@@ -57,18 +57,18 @@ class MainViewController: UIViewController {
     */
     func updateView() {
         self.fetchNewProduct()
-        self.setUIComponents()
+        self.configure()
     }
     
     
     // MARK: - set UIComponents
-    func setUIComponents() { // UIComponent에 데이터 연결
-        guard let factoryPrice = self.currentProduct?.factoryPrice else { return }
-        guard let discountPercentage = self.currentProduct?.discountPercentage else { return }
+    func configure() { // UIComponent에 데이터 연결
+        guard let factoryPrice = currentProduct?.factoryPrice else { return }
+        guard let discountPercentage = currentProduct?.discountPercentage else { return }
         let sellingPrice = Int(Float(factoryPrice) * (1 - discountPercentage * 0.01))
         
-        self.titleLabel.text = self.currentProduct?.title
-        self.descriptionLabel.text = self.currentProduct?.description
+        self.titleLabel.text = currentProduct?.title
+        self.descriptionLabel.text = currentProduct?.description
         self.factoryPriceLabel.text = "$\(factoryPrice)"
         self.discountPercentageLabel.text = "\(discountPercentage)%"
         self.sellingPriceLabel.text = "$\(sellingPrice)"
