@@ -23,17 +23,26 @@ class MainViewController: UIViewController {
     
     
     @IBAction func tappedSkipButton(_ sender: UIButton) {
-        setUIComponents()
+        updateView()
     }
     
     var currentProduct: Product? = nil
+    
+//    override func loadView() {
+//        super.loadView()
+//        self.updateView()
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.fetchNewProduct()
-        self.setUIComponents()
+        self.updateView()
         print("hello! \(self.currentProduct?.title)")
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.updateView()
     }
     
 
@@ -46,6 +55,13 @@ class MainViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    func updateView() {
+        self.fetchNewProduct()
+        self.setUIComponents()
+    }
+    
+    
+    // MARK: - set UIComponents
     func setUIComponents() { // UIComponent에 데이터 연결
         guard let factoryPrice = self.currentProduct?.factoryPrice else { return }
         guard let discountPercentage = self.currentProduct?.discountPercentage else { return }
@@ -59,15 +75,17 @@ class MainViewController: UIViewController {
         loadProductImage()
     }
     
-    
-    func loadProductImage() { // 썸네일 이미지 가져오기
-        guard let imageURL = self.currentProduct?.thumbnail else { return }
-        
-        guard let data = try? Data(contentsOf: imageURL) else { return }
-        
-        self.thumbnailImage.image = UIImage(data: data)
-        print("이미지 설정!")
-        
+    // 썸네일 이미지 가져오기: global queue에서 실행
+    func loadProductImage() {
+        DispatchQueue.global().async { [weak self] in
+            guard let imageURL = self?.currentProduct?.thumbnail,
+            let data = try? Data(contentsOf: imageURL) else { return }
+            
+            DispatchQueue.main.async {
+                self?.thumbnailImage.image = UIImage(data: data)
+                print("이미지 설정!")
+            }
+        }
     }
     
     
@@ -99,10 +117,8 @@ class MainViewController: UIViewController {
                 let decoder = JSONDecoder()
                 let product = try decoder.decode(Product.self, from: data)
                 self.currentProduct = product
-                print(product)
-                print(product.title)
             } catch let error as NSError {
-                print("error: \(error)")
+                print("decoding error: \(error)")
             }
         }
         task.resume()
