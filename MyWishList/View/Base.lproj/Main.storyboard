@@ -35,14 +35,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="출고가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ou2-JJ-wX2">
-                                <rect key="frame" x="64" y="590" width="47" height="21.666666666666629"/>
+                                <rect key="frame" x="57.333333333333343" y="590" width="47" height="21.666666666666629"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F0A-jn-xQz">
-                                <rect key="frame" x="15" y="590" width="39" height="21.666666666666629"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <rect key="frame" x="15.000000000000004" y="590" width="36.333333333333343" height="21.666666666666629"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                 <color key="textColor" systemColor="systemPinkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -117,7 +117,7 @@
                             <constraint firstItem="mrP-bp-cGI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ffh-ee-JwB"/>
                             <constraint firstItem="vg9-sy-ohz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="rWF-1X-HO6"/>
                             <constraint firstItem="Ou2-JJ-wX2" firstAttribute="centerY" secondItem="F0A-jn-xQz" secondAttribute="centerY" id="tMQ-cd-yMP"/>
-                            <constraint firstItem="Ou2-JJ-wX2" firstAttribute="leading" secondItem="F0A-jn-xQz" secondAttribute="trailing" constant="10" id="wHZ-zH-wDn"/>
+                            <constraint firstItem="Ou2-JJ-wX2" firstAttribute="leading" secondItem="F0A-jn-xQz" secondAttribute="trailing" constant="6" id="wHZ-zH-wDn"/>
                         </constraints>
                     </view>
                     <connections>

@@ -53,9 +53,9 @@ class MainViewController: UIViewController {
         
         self.titleLabel.text = self.currentProduct?.title
         self.descriptionLabel.text = self.currentProduct?.description
-        self.factoryPriceLabel.text = "\(factoryPrice)$"
+        self.factoryPriceLabel.text = "$\(factoryPrice)"
         self.discountPercentageLabel.text = "\(discountPercentage)%"
-        self.sellingPriceLabel.text = "\(sellingPrice)"
+        self.sellingPriceLabel.text = "$\(sellingPrice)"
         loadProductImage()
     }
     
