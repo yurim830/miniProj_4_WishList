@@ -9,6 +9,22 @@ import UIKit
 import CoreData
 
 class MainViewController: UIViewController {
+    var persistentContainer: NSPersistentContainer? {
+        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+    }
+    
+    var currentProduct: Product? = nil { // currentProduct가 set되면 UIComponents에 값 지정
+        didSet {
+            DispatchQueue.main.async { // didSet은 메인스레드에서 실행되는 것을 보장하지 않으므로 main 스레드에서 실행될 것을 보장해야 함.
+                self.configure(self.currentProduct)
+            }
+        }
+    }
+    
+    
+    
+    
+    var myProductList: [Product] = []
     
     // UI Components 연결
     @IBOutlet weak var thumbnailImage: UIImageView!
@@ -22,39 +38,25 @@ class MainViewController: UIViewController {
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var myWishListButton: UIButton!
     
+
     
     @IBAction func tappedSkipButton(_ sender: UIButton) {
-        updateView()
+        fetchNewProduct()
     }
     
     @IBAction func tappedAddButton(_ sender: UIButton) {
         addToList(self.currentProduct)
     }
     
-    
-    var currentProduct: Product? = nil
-    var myProductList: [Product] = []
-    var persistentContainer: NSPersistentContainer? {
-        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
-    }
-    
-//    override func loadView() {
-//        super.loadView()
-//        self.updateView()
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.updateView()
-        print("hello! \(self.currentProduct?.title)")
-        // Do any additional setup after loading the view.
+        fetchNewProduct()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.updateView()
-    }
-    
+//    func updateView() { // 적합하지 않음
+//        self.fetchNewProduct() // URL data 가져오는 부분은 다른 스레드에서 비동기적으로 처리되는데
+//        self.configure(self.currentProduct) // 데이터를 가져오기도 전에 configure가 실행되기 때문.
+//    }
 
     /*
     // MARK: - Navigation
@@ -65,31 +67,25 @@ class MainViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func updateView() {
-        self.fetchNewProduct()
-        self.configure()
-    }
+    
     
     
     // MARK: - set UIComponents
-    func configure() { // UIComponent에 데이터 연결
-        guard let factoryPrice = currentProduct?.factoryPrice else { return }
-        guard let discountPercentage = currentProduct?.discountPercentage else { return }
-        let sellingPrice = Int(Float(factoryPrice) * (1 - discountPercentage * 0.01))
-        
-        self.titleLabel.text = currentProduct?.title
-        self.descriptionLabel.text = currentProduct?.description
-        self.factoryPriceLabel.text = "$\(factoryPrice)"
-        self.discountPercentageLabel.text = "\(discountPercentage)%"
-        self.sellingPriceLabel.text = "$\(sellingPrice)"
-        loadProductImage()
+    func configure(_ currentProduct: Product?) { // UIComponent에 데이터 연결
+        guard let product = currentProduct else { return }
+        print("configure thread: \(Thread.current)")
+        self.titleLabel.text = product.title
+        self.descriptionLabel.text = product.description
+        self.factoryPriceLabel.text = "$\(product.factoryPrice)"
+        self.discountPercentageLabel.text = "\(product.discountPercentage)%"
+        self.sellingPriceLabel.text = "$\(Int(Float(product.factoryPrice) * (1 - product.discountPercentage * 0.01)))"
+        loadProductImage(product.thumbnail)
     }
     
     // 썸네일 이미지 가져오기: global queue에서 실행
-    func loadProductImage() {
+    func loadProductImage(_ imageURL: URL) {
         DispatchQueue.global().async { [weak self] in
-            guard let imageURL = self?.currentProduct?.thumbnail,
-            let data = try? Data(contentsOf: imageURL) else { return }
+            guard let data = try? Data(contentsOf: imageURL) else { return }
             
             DispatchQueue.main.async {
                 self?.thumbnailImage.image = UIImage(data: data)
@@ -102,6 +98,7 @@ class MainViewController: UIViewController {
     
     // MARK: - call REST API
     func fetchNewProduct() {
+        print("fetchNewProduct 스레드: ", Thread.current)
         // 1. URLSession 인스턴스 생성
         let configuration = URLSessionConfiguration.default
         let session = URLSession(configuration: configuration)
@@ -112,6 +109,7 @@ class MainViewController: UIViewController {
         
         // 3. URLSessionDataTask로 비동기적으로 데이터 요청
         let task = session.dataTask(with: url) { data, response, error in
+            print("데이터 요청 스레드: ", Thread.current)
             // 3-1. 성공한 응답 걸러내기
             guard let httpResponse = response as? HTTPURLResponse,
                   (200..<300).contains(httpResponse.statusCode) else {
