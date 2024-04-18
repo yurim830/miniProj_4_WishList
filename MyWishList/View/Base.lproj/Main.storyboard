@@ -65,6 +65,9 @@
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tappedAddButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xyw-eF-ezi"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S18-xT-7xL">
                                         <rect key="frame" x="221.66666666666663" y="0.0" width="141.33333333333337" height="60.333333333333336"/>

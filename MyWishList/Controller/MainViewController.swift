@@ -27,7 +27,13 @@ class MainViewController: UIViewController {
         updateView()
     }
     
+    @IBAction func tappedAddButton(_ sender: UIButton) {
+        addToList(self.currentProduct)
+    }
+    
+    
     var currentProduct: Product? = nil
+    var myProductList: [Product] = []
     var persistentContainer: NSPersistentContainer? {
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     }
@@ -140,6 +146,13 @@ class MainViewController: UIViewController {
         newProduct.title = currentProduct.title
         
         try? context.save()
+    }
+    
+    
+    // MARK: - Add to list 기능
+    func addToList(_ product: Product?) {
+        guard let currentProduct = product else { return }
+        self.myProductList.append(currentProduct)
     }
     
 }
