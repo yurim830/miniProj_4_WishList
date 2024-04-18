@@ -31,9 +31,9 @@ class MyWishListViewController: UIViewController {
         
         if let productList = try? context.fetch(request) {
             self.myProductList = productList
+            print("id", productList.first?.id)
+            print("title: \(productList.first?.title)")
         }
-        
-        
     }
 }
 
@@ -47,12 +47,14 @@ extension MyWishListViewController: UITableViewDataSource {
         
         let product = myProductList[indexPath.row]
         
+        
+        print(123123, product.id, product.title)
+        
         let id = product.id
-        let title = product.title
+        let title = product.title!
         
         cell.textLabel?.text = "[\(id)] \(title)"
         return cell
-        
     }
     
     
