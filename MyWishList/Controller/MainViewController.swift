@@ -28,7 +28,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var factoryPriceLabel: UILabel!
     @IBOutlet weak var discountPercentageLabel: UILabel!
     @IBOutlet weak var sellingPriceLabel: UILabel!
-    @IBOutlet weak var wonLabel: UILabel!
     @IBOutlet weak var addToListButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var myWishListButton: UIButton!
@@ -155,6 +154,5 @@ class MainViewController: UIViewController {
         
         try? context.save()
     }
-    
     
 }
