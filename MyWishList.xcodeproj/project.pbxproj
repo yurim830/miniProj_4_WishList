@@ -16,6 +16,7 @@
 		1A15CB522BCE51960075B529 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 1A15CB512BCE51960075B529 /* Base */; };
 		1A15CB5A2BCE643A0075B529 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A15CB592BCE643A0075B529 /* MainViewController.swift */; };
 		1A15CB5F2BCE74BF0075B529 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A15CB5E2BCE74BF0075B529 /* Product.swift */; };
+		1A60B63C2BD0F4F800650093 /* MyWishList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A60B63B2BD0F4F800650093 /* MyWishList.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		1A15CB532BCE51960075B529 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A15CB592BCE643A0075B529 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		1A15CB5E2BCE74BF0075B529 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		1A60B63B2BD0F4F800650093 /* MyWishList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyWishList.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			children = (
 				1A15CB502BCE51960075B529 /* LaunchScreen.storyboard */,
 				1A15CB482BCE51940075B529 /* Main.storyboard */,
+				1A60B63B2BD0F4F800650093 /* MyWishList.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A15CB4F2BCE51960075B529 /* Assets.xcassets in Resources */,
+				1A60B63C2BD0F4F800650093 /* MyWishList.storyboard in Resources */,
 				1A15CB522BCE51960075B529 /* Base in Resources */,
 				1A15CB4A2BCE51940075B529 /* Base in Resources */,
 			);

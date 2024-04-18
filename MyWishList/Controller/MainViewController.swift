@@ -45,7 +45,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func tappedAddButton(_ sender: UIButton) {
-        addToList(self.currentProduct)
+        saveData()
     }
     
     override func viewDidLoad() {
@@ -84,11 +84,11 @@ class MainViewController: UIViewController {
     
     // 썸네일 이미지 가져오기: global queue에서 실행
     func loadProductImage(_ imageURL: URL) {
-        DispatchQueue.global().async { [weak self] in
-            guard let data = try? Data(contentsOf: imageURL) else { return }
+        DispatchQueue.global().async { [weak self] in // ARC 순환참조를 막기 위해. 클로저로 self에 접근해야 할 때 weak self 자주 사용.
+            guard let data = try? Data(contentsOf: imageURL) else { return } // url을 데이터화
             
             DispatchQueue.main.async {
-                self?.thumbnailImage.image = UIImage(data: data)
+                self?.thumbnailImage.image = UIImage(data: data) // self?: 약한 참조
                 print("이미지 설정!")
             }
         }
@@ -97,7 +97,7 @@ class MainViewController: UIViewController {
     
     
     // MARK: - call REST API
-    func fetchNewProduct() {
+    private func fetchNewProduct() {
         print("fetchNewProduct 스레드: ", Thread.current)
         // 1. URLSession 인스턴스 생성
         let configuration = URLSessionConfiguration.default
@@ -146,11 +146,5 @@ class MainViewController: UIViewController {
         try? context.save()
     }
     
-    
-    // MARK: - Add to list 기능
-    func addToList(_ product: Product?) {
-        guard let currentProduct = product else { return }
-        self.myProductList.append(currentProduct)
-    }
     
 }
