@@ -39,10 +39,20 @@ class MyWishListViewController: UIViewController {
     }
     
     func configureUI() {
+        // MARK: Title
         titleButton.layer.cornerRadius = 0
         titleButton.layer.borderWidth = 1
         titleButton.layer.borderColor = UIColor.systemGray4.cgColor
     }
+    
+    func tableViewAction() {
+        // 선택 x
+        tableView.allowsSelection = false
+        
+        
+    }
+    
+    
 }
 
 extension MyWishListViewController: UITableViewDataSource {
@@ -66,5 +76,10 @@ extension MyWishListViewController: UITableViewDataSource {
         return cell
     }
     
+    // 스와이프하여 삭제
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        myProductList.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+    }
     
 }
