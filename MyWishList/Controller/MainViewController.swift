@@ -177,10 +177,12 @@ class MainViewController: UIViewController {
         let buttonHeight = myWishListButton.bounds.height
         let buttonViewHeight = buttonHeight + 40
         NSLayoutConstraint.activate([
-            myWishListButtonView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 20), // view의 bottom을 safeArea보다 20 아래에 잡기
-            myWishListButtonView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
-            myWishListButtonView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
-            myWishListButtonView.heightAnchor.constraint(equalToConstant: buttonViewHeight)
+//            myWishListButtonView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 20), // view의 bottom을 safeArea보다 20 아래에 잡기
+            myWishListButtonView.heightAnchor.constraint(equalToConstant: buttonViewHeight), // view의 높이 = 버튼 높이 + 40
+            myWishListButtonView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -(10 + buttonHeight)),
+            myWishListButtonView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0), // leading
+            myWishListButtonView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0) // trailing
+            
         ])
         
         // MARK: my wish list button
@@ -201,7 +203,9 @@ class MainViewController: UIViewController {
     }
     
     func configureUI() {
-        myWishListButtonView.layer.cornerRadius = 30
+        myWishListButtonView.layer.cornerRadius = 20
+        myWishListButtonView.layer.borderWidth = 1
+        myWishListButtonView.layer.borderColor = UIColor.systemGray4.cgColor
         
         
     }

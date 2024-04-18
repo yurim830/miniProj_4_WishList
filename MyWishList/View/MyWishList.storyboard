@@ -17,15 +17,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2a-oj-RPf">
-                                <rect key="frame" x="0.0" y="59" width="393" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="teU-5O-QEl"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="list.dash" catalog="system" title="My Wish List" imagePadding="8" cornerStyle="large">
-                                    <backgroundConfiguration key="background"/>
+                                <buttonConfiguration key="configuration" style="plain" image="list.dash" catalog="system" title="My Wish List" imagePadding="8" cornerStyle="fixed">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                    </backgroundConfiguration>
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
                                 </buttonConfiguration>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="CPT-Xa-hhI">
-                                <rect key="frame" x="0.0" y="109" width="393" height="709"/>
+                                <rect key="frame" x="0.0" y="70" width="393" height="748"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyWishListTableCell" id="9vf-uU-bPz">
@@ -40,20 +45,20 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="CPT-Xa-hhI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="4Xh-zQ-fRp"/>
-                            <constraint firstItem="CPT-Xa-hhI" firstAttribute="top" secondItem="e2a-oj-RPf" secondAttribute="bottom" id="5Hd-Jc-haA"/>
+                            <constraint firstItem="CPT-Xa-hhI" firstAttribute="top" secondItem="e2a-oj-RPf" secondAttribute="bottom" constant="10" id="5Hd-Jc-haA"/>
                             <constraint firstItem="e2a-oj-RPf" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="7bu-Xc-wOJ"/>
                             <constraint firstItem="e2a-oj-RPf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9ga-82-OGt"/>
-                            <constraint firstItem="CPT-Xa-hhI" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="50" id="ADs-UH-eaC"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="CPT-Xa-hhI" secondAttribute="bottom" id="cPL-Q0-eok"/>
-                            <constraint firstItem="e2a-oj-RPf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="gA6-KZ-fmK"/>
+                            <constraint firstItem="e2a-oj-RPf" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="gA6-KZ-fmK"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="CPT-Xa-hhI" secondAttribute="trailing" id="gbf-TZ-j99"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="CPT-Xa-hhI" id="47X-vY-GXv"/>
+                        <outlet property="titleButton" destination="e2a-oj-RPf" id="T0W-1O-Pn4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -65,6 +70,9 @@
         <image name="list.dash" catalog="system" width="128" height="85"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

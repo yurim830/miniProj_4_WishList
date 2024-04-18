@@ -15,11 +15,13 @@ class MyWishListViewController: UIViewController {
         (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
     }
     
+    @IBOutlet weak var titleButton: UIButton!
     @IBOutlet weak var tableView: UITableView! // IBOutlet으로 연결
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setProductList()
+        configureUI()
         tableView.dataSource = self // dataSource 설정
     }
     
@@ -34,6 +36,12 @@ class MyWishListViewController: UIViewController {
             print("id", productList.first?.id)
             print("title: \(productList.first?.title)")
         }
+    }
+    
+    func configureUI() {
+        titleButton.layer.cornerRadius = 0
+        titleButton.layer.borderWidth = 1
+        titleButton.layer.borderColor = UIColor.systemGray4.cgColor
     }
 }
 
