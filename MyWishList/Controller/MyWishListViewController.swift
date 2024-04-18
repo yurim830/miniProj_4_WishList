@@ -25,7 +25,8 @@ class MyWishListViewController: UIViewController {
         tableView.dataSource = self // dataSource 설정
     }
     
-    
+    // MARK: - persistent Containter에 접근
+    // 데이터 읽기(Read)
     func setProductList() {
         guard let context = self.persistentContainer?.viewContext else { return }
         
@@ -36,6 +37,19 @@ class MyWishListViewController: UIViewController {
             print("id", productList.first?.id)
             print("title: \(productList.first?.title)")
         }
+    }
+    
+    // 데이터 삭제(Delete)
+    func deleteProduct(_ index: Int) {
+        guard let context = self.persistentContainer?.viewContext else { return }
+        
+        let request = MyProduct.fetchRequest()
+        
+        guard let products = try? context.fetch(request) else { return }
+        
+        context.delete(products[index])
+        
+        try? context.save()
     }
     
     func configureUI() {
@@ -80,6 +94,7 @@ extension MyWishListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         myProductList.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        deleteProduct(indexPath.row)
     }
     
 }
