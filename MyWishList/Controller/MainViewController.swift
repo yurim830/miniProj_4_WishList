@@ -48,6 +48,23 @@ class MainViewController: UIViewController {
         saveData()
     }
     
+    @IBAction func tappedMyWishListButton(_ sender: UIButton) {
+        let wishListStoryBoard = UIStoryboard(name: "MyWishList", bundle: nil)
+        guard let nextVC = wishListStoryBoard
+            .instantiateViewController(
+                identifier: "MyWishListViewController"
+            ) as? MyWishListViewController else { return }
+        nextVC.modalPresentationStyle = .automatic
+        self.present(nextVC, animated: true, completion: nil)
+        
+            
+            
+            
+//            .instantiateViewController(identifier: "CodePresentViewController") else { return }
+//        viewController.modalPresentationStyle = .fullScreen
+//        self.present(viewController, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchNewProduct()

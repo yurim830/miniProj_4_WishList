@@ -95,6 +95,9 @@
                                     <backgroundConfiguration key="background"/>
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="tappedMyWishListButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NQO-La-yaJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
