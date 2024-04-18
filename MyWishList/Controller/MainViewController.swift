@@ -41,8 +41,10 @@ class MainViewController: UIViewController {
     @IBOutlet weak var sellingPriceLabel: UILabel!
     @IBOutlet weak var addToListButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
+    @IBOutlet weak var addOrSkipButtonStackView: UIStackView!
     @IBOutlet weak var myWishListButton: UIButton!
- 
+    @IBOutlet weak var myWishListButtonView: UIView!
+    
     @IBAction func tappedSkipButton(_ sender: UIButton) {
         fetchNewProduct()
     }
@@ -64,6 +66,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureUI()
+        setupConstraints()
         fetchNewProduct()
     }
     
@@ -84,7 +88,7 @@ class MainViewController: UIViewController {
     
     
     
-    // MARK: - set UIComponents
+    // MARK: - link data to UIComponents
     func configure(_ currentProduct: Product?) { // UIComponent에 데이터 연결
         guard let product = currentProduct else { return }
         print("configure thread: \(Thread.current)")
@@ -163,6 +167,43 @@ class MainViewController: UIViewController {
         newProduct.price = Int32(Float(currentProduct.factoryPrice) * (1 - currentProduct.discountPercentage * 0.01))
         
         try? context.save()
+    }
+    
+    // MARK: - set UI Components
+    func setupConstraints() {
+        let width = UIScreen.main.bounds.width
+        
+        // MARK: my wish list button view
+        let buttonHeight = myWishListButton.bounds.height
+        let buttonViewHeight = buttonHeight + 40
+        NSLayoutConstraint.activate([
+            myWishListButtonView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 20), // view의 bottom을 safeArea보다 20 아래에 잡기
+            myWishListButtonView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
+            myWishListButtonView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
+            myWishListButtonView.heightAnchor.constraint(equalToConstant: buttonViewHeight)
+        ])
+        
+        // MARK: my wish list button
+        NSLayoutConstraint.activate([
+            myWishListButton.topAnchor.constraint(equalTo: myWishListButtonView.topAnchor, constant: 10), // y좌표
+            myWishListButton.centerXAnchor.constraint(equalTo: myWishListButtonView.centerXAnchor) // x좌표
+        ])
+        
+        //MARK: button stack view
+        addOrSkipButtonStackView.distribution = .fillProportionally
+        NSLayoutConstraint.activate([
+            addOrSkipButtonStackView.widthAnchor.constraint(equalToConstant: width - 30), // 너비
+            addOrSkipButtonStackView.heightAnchor.constraint(equalToConstant: (width - 30) / 6), // 높이
+            addOrSkipButtonStackView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor), // x좌표
+            addOrSkipButtonStackView.bottomAnchor.constraint(equalTo: myWishListButtonView.topAnchor, constant: -20) // y좌표
+        ])
+        
+    }
+    
+    func configureUI() {
+        myWishListButtonView.layer.cornerRadius = 30
+        
+        
     }
     
 }

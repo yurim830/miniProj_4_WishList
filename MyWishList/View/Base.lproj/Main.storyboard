@@ -59,11 +59,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vg9-sy-ohz">
-                                <rect key="frame" x="15" y="707" width="363" height="60.333333333333371"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vg9-sy-ohz">
+                                <rect key="frame" x="15" y="687.66666666666652" width="251.33333333333337" height="35.666666666666629"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Jb-QG-iP5">
-                                        <rect key="frame" x="0.0" y="0.0" width="211.66666666666666" height="60.333333333333336"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="146.66666666666666" height="35.666666666666664"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="cart.badge.plus" catalog="system" title="Add to list" imagePadding="8" cornerStyle="capsule">
@@ -77,7 +77,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S18-xT-7xL">
-                                        <rect key="frame" x="221.66666666666663" y="0.0" width="141.33333333333337" height="60.333333333333336"/>
+                                        <rect key="frame" x="156.66666666666666" y="0.0" width="94.666666666666657" height="35.666666666666664"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" image="nosign" catalog="system" title="Skip" imagePadding="8" cornerStyle="capsule">
@@ -91,21 +91,26 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="vg9-sy-ohz" secondAttribute="height" multiplier="6:1" id="sC5-nk-u61"/>
-                                </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrP-bp-cGI">
-                                <rect key="frame" x="0.0" y="782.33333333333337" width="393" height="35.666666666666629"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="list.dash" catalog="system" title="My Wish List" imagePadding="8" cornerStyle="large">
-                                    <backgroundConfiguration key="background"/>
-                                    <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="tappedMyWishListButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NQO-La-yaJ"/>
-                                </connections>
-                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OM7-bp-hEQ">
+                                <rect key="frame" x="0.0" y="768" width="393" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mrP-bp-cGI">
+                                        <rect key="frame" x="113.66666666666667" y="10" width="165.66666666666663" height="35.666666666666664"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="list.dash" catalog="system" title="My Wish List" imagePadding="8" cornerStyle="large">
+                                            <backgroundConfiguration key="background"/>
+                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tappedMyWishListButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NQO-La-yaJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -114,14 +119,10 @@
                             <constraint firstItem="6tl-2j-s73" firstAttribute="top" secondItem="kUt-Mb-LsB" secondAttribute="bottom" constant="5" id="29d-kX-vql"/>
                             <constraint firstItem="kUt-Mb-LsB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="7lV-AG-qbe"/>
                             <constraint firstItem="F0A-jn-xQz" firstAttribute="leading" secondItem="6tl-2j-s73" secondAttribute="leading" id="8K5-Vj-xIt"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mrP-bp-cGI" secondAttribute="bottom" id="By5-fg-odO"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mrP-bp-cGI" secondAttribute="trailing" id="CIR-lX-Khn"/>
                             <constraint firstItem="kUt-Mb-LsB" firstAttribute="top" secondItem="FQh-PX-NcY" secondAttribute="bottom" constant="30" id="E01-Dv-3N7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kUt-Mb-LsB" secondAttribute="trailing" constant="15" id="Gxb-40-s9I"/>
                             <constraint firstItem="FQh-PX-NcY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="IaH-vb-aDw"/>
-                            <constraint firstItem="mrP-bp-cGI" firstAttribute="top" secondItem="vg9-sy-ohz" secondAttribute="bottom" constant="15" id="M0V-vh-LnT"/>
                             <constraint firstItem="tLr-pK-nwk" firstAttribute="centerY" secondItem="Ou2-JJ-wX2" secondAttribute="centerY" id="NQD-p8-Gky"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vg9-sy-ohz" secondAttribute="trailing" constant="15" id="OEO-nW-6Kt"/>
                             <constraint firstItem="F0A-jn-xQz" firstAttribute="top" secondItem="6tl-2j-s73" secondAttribute="bottom" constant="30" id="Oil-9a-dSP"/>
                             <constraint firstItem="KxM-Uq-anM" firstAttribute="leading" secondItem="F0A-jn-xQz" secondAttribute="leading" id="RUS-Nx-A7q"/>
                             <constraint firstItem="6tl-2j-s73" firstAttribute="leading" secondItem="kUt-Mb-LsB" secondAttribute="leading" id="S5T-to-JSb"/>
@@ -129,19 +130,19 @@
                             <constraint firstItem="KxM-Uq-anM" firstAttribute="top" secondItem="F0A-jn-xQz" secondAttribute="bottom" constant="5" id="aGk-N3-8ee"/>
                             <constraint firstItem="tLr-pK-nwk" firstAttribute="centerX" secondItem="Ou2-JJ-wX2" secondAttribute="centerX" id="eHI-W0-y1c"/>
                             <constraint firstItem="6tl-2j-s73" firstAttribute="trailing" secondItem="kUt-Mb-LsB" secondAttribute="trailing" id="ebO-Sy-NIe"/>
-                            <constraint firstItem="mrP-bp-cGI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ffh-ee-JwB"/>
-                            <constraint firstItem="vg9-sy-ohz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="rWF-1X-HO6"/>
                             <constraint firstItem="tLr-pK-nwk" firstAttribute="width" secondItem="Ou2-JJ-wX2" secondAttribute="width" multiplier="1.1" constant="1" id="roC-H2-6ZG"/>
                             <constraint firstItem="Ou2-JJ-wX2" firstAttribute="centerY" secondItem="F0A-jn-xQz" secondAttribute="centerY" id="tMQ-cd-yMP"/>
                             <constraint firstItem="Ou2-JJ-wX2" firstAttribute="leading" secondItem="F0A-jn-xQz" secondAttribute="trailing" constant="6" id="wHZ-zH-wDn"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addOrSkipButtonStackView" destination="vg9-sy-ohz" id="dBg-r4-tS1"/>
                         <outlet property="addToListButton" destination="3Jb-QG-iP5" id="Yed-HX-J3I"/>
                         <outlet property="descriptionLabel" destination="6tl-2j-s73" id="J6O-fg-Mfm"/>
                         <outlet property="discountPercentageLabel" destination="F0A-jn-xQz" id="ebf-yh-7i1"/>
                         <outlet property="factoryPriceLabel" destination="Ou2-JJ-wX2" id="FAU-rT-cAm"/>
                         <outlet property="myWishListButton" destination="mrP-bp-cGI" id="R28-wO-zmo"/>
+                        <outlet property="myWishListButtonView" destination="OM7-bp-hEQ" id="QNx-2F-M7O"/>
                         <outlet property="sellingPriceLabel" destination="KxM-Uq-anM" id="YHt-J6-Ajz"/>
                         <outlet property="skipButton" destination="S18-xT-7xL" id="DbB-sI-Fz7"/>
                         <outlet property="thumbnailImage" destination="FQh-PX-NcY" id="Oc4-yf-UDS"/>
@@ -160,6 +161,9 @@
         <image name="nosign" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
