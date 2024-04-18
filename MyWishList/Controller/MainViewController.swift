@@ -60,12 +60,6 @@ class MainViewController: UIViewController {
         nextVC.modalPresentationStyle = .automatic
         self.present(nextVC, animated: true, completion: nil)
         
-            
-            
-            
-//            .instantiateViewController(identifier: "CodePresentViewController") else { return }
-//        viewController.modalPresentationStyle = .fullScreen
-//        self.present(viewController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -94,11 +88,14 @@ class MainViewController: UIViewController {
     func configure(_ currentProduct: Product?) { // UIComponent에 데이터 연결
         guard let product = currentProduct else { return }
         print("configure thread: \(Thread.current)")
+        // 천자리 콤마 numberFormatter 생성
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
         self.titleLabel.text = product.title
         self.descriptionLabel.text = product.description
-        self.factoryPriceLabel.text = "$\(product.factoryPrice)"
+        self.factoryPriceLabel.text = "$\(numberFormatter.string(from: NSNumber(value: product.factoryPrice)) ?? "")"
         self.discountPercentageLabel.text = "\(product.discountPercentage)%"
-        self.sellingPriceLabel.text = "$\(Int(Float(product.factoryPrice) * (1 - product.discountPercentage * 0.01)))"
+        self.sellingPriceLabel.text = "$\(numberFormatter.string(from: NSNumber(value: Int(Float(product.factoryPrice) * (1 - product.discountPercentage * 0.01)))) ?? "")"
         loadProductImage(product.thumbnail)
     }
     
