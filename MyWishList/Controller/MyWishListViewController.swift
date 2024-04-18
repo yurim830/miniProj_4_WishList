@@ -48,12 +48,13 @@ extension MyWishListViewController: UITableViewDataSource {
         let product = myProductList[indexPath.row]
         
         
-        print(123123, product.id, product.title)
+        print(123123, product.id, product.title, product.price)
         
         let id = product.id
         let title = product.title!
+        let price = product.price
         
-        cell.textLabel?.text = "[\(id)] \(title)"
+        cell.textLabel?.text = "[\(id)] \(title) - $\(price)"
         return cell
     }
     

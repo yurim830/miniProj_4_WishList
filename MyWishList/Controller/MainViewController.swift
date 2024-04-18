@@ -16,7 +16,18 @@ class MainViewController: UIViewController {
     var currentProduct: Product? = nil { // currentProduct가 set되면 UIComponents에 값 지정
         didSet {
             DispatchQueue.main.async { // didSet은 메인스레드에서 실행되는 것을 보장하지 않으므로 main 스레드에서 실행될 것을 보장해야 함.
-                self.configure(self.currentProduct)
+                // 애니메이션 옵션 설정
+                let options: UIView.AnimationOptions = [.transitionCrossDissolve, .allowUserInteraction]
+                // 애니메이션 적용
+                UIView.transition(
+                    with: self.view,
+                    duration: 0.3,
+                    options: options,
+                    animations: {
+                        // 애니메이션이 필요한 UI 업데이트 코드 작성
+                        self.configure(self.currentProduct)
+                    },
+                    completion: nil)
             }
         }
     }
@@ -140,6 +151,7 @@ class MainViewController: UIViewController {
         }
         task.resume()
     }
+
     
     // MARK: - Core Data
     // 데이터 쓰기 (Create)
@@ -151,6 +163,7 @@ class MainViewController: UIViewController {
         
         newProduct.id = Int32(currentProduct.id)
         newProduct.title = currentProduct.title
+        newProduct.price = Int32(Float(currentProduct.factoryPrice) * (1 - currentProduct.discountPercentage * 0.01))
         
         try? context.save()
     }
