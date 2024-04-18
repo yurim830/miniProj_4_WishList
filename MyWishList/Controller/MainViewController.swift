@@ -21,11 +21,6 @@ class MainViewController: UIViewController {
         }
     }
     
-    
-    
-    
-    var myProductList: [Product] = []
-    
     // UI Components 연결
     @IBOutlet weak var thumbnailImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -37,9 +32,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var addToListButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var myWishListButton: UIButton!
-    
-
-    
+ 
     @IBAction func tappedSkipButton(_ sender: UIButton) {
         fetchNewProduct()
     }
