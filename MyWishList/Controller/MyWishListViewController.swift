@@ -57,13 +57,7 @@ class MyWishListViewController: UIViewController {
         titleButton.layer.cornerRadius = 0
         titleButton.layer.borderWidth = 1
         titleButton.layer.borderColor = UIColor.systemGray4.cgColor
-    }
-    
-    func tableViewAction() {
-        // 선택 x
         tableView.allowsSelection = false
-        
-        
     }
     
     
@@ -92,7 +86,7 @@ extension MyWishListViewController: UITableViewDataSource {
     
     // 스와이프하여 삭제
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        myProductList.remove(at: indexPath.row)
+        myProductList.remove(at: indexPath.row) // 이게 없으면 에러남... 왠지는 모르겠음
         tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         deleteProduct(indexPath.row)
     }

@@ -104,8 +104,16 @@
                                             <backgroundConfiguration key="background"/>
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
                                         </buttonConfiguration>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOt-SO-Unr" userLabel="ButtonTapArea">
+                                        <rect key="frame" x="18" y="10" width="377" height="58"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" cornerStyle="large">
+                                            <backgroundConfiguration key="background"/>
+                                        </buttonConfiguration>
                                         <connections>
-                                            <action selector="tappedMyWishListButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NQO-La-yaJ"/>
+                                            <action selector="tappedMyWishList:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1xZ-E4-QgT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -141,7 +149,8 @@
                         <outlet property="descriptionLabel" destination="6tl-2j-s73" id="J6O-fg-Mfm"/>
                         <outlet property="discountPercentageLabel" destination="F0A-jn-xQz" id="ebf-yh-7i1"/>
                         <outlet property="factoryPriceLabel" destination="Ou2-JJ-wX2" id="FAU-rT-cAm"/>
-                        <outlet property="myWishListButton" destination="mrP-bp-cGI" id="R28-wO-zmo"/>
+                        <outlet property="myWishListButtonLabel" destination="mrP-bp-cGI" id="R28-wO-zmo"/>
+                        <outlet property="myWishListButtonTapArea" destination="hOt-SO-Unr" id="u83-l5-3Hb"/>
                         <outlet property="myWishListButtonView" destination="OM7-bp-hEQ" id="QNx-2F-M7O"/>
                         <outlet property="sellingPriceLabel" destination="KxM-Uq-anM" id="YHt-J6-Ajz"/>
                         <outlet property="skipButton" destination="S18-xT-7xL" id="DbB-sI-Fz7"/>

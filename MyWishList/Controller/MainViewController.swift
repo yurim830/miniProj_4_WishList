@@ -42,8 +42,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var addToListButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var addOrSkipButtonStackView: UIStackView!
-    @IBOutlet weak var myWishListButton: UIButton!
+    @IBOutlet weak var myWishListButtonLabel: UIButton!
     @IBOutlet weak var myWishListButtonView: UIView!
+    @IBOutlet weak var myWishListButtonTapArea: UIButton!
     
     @IBAction func tappedSkipButton(_ sender: UIButton) {
         fetchNewProduct()
@@ -53,7 +54,7 @@ class MainViewController: UIViewController {
         saveData()
     }
     
-    @IBAction func tappedMyWishListButton(_ sender: UIButton) {
+    @IBAction func tappedMyWishList(_ sender: UIButton) {
         let wishListStoryBoard = UIStoryboard(name: "MyWishList", bundle: nil)
         guard let nextVC = wishListStoryBoard
             .instantiateViewController(
@@ -61,9 +62,8 @@ class MainViewController: UIViewController {
             ) as? MyWishListViewController else { return }
         nextVC.modalPresentationStyle = .automatic
         self.present(nextVC, animated: true, completion: nil)
-        
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -171,25 +171,37 @@ class MainViewController: UIViewController {
     
     // MARK: - set UI Components
     func setupConstraints() {
+        [myWishListButtonLabel, myWishListButtonView, myWishListButtonTapArea,addOrSkipButtonStackView].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+        
         let width = UIScreen.main.bounds.width
         
         // MARK: my wish list button view
-        let buttonHeight = myWishListButton.bounds.height
+        let buttonHeight = myWishListButtonLabel.bounds.height
         let buttonViewHeight = buttonHeight + 40
         NSLayoutConstraint.activate([
 //            myWishListButtonView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 20), // view의 bottom을 safeArea보다 20 아래에 잡기
             myWishListButtonView.heightAnchor.constraint(equalToConstant: buttonViewHeight), // view의 높이 = 버튼 높이 + 40
-            myWishListButtonView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -(10 + buttonHeight)),
+            myWishListButtonView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -(20 + buttonHeight)),
             myWishListButtonView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0), // leading
             myWishListButtonView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0) // trailing
             
         ])
         
-        // MARK: my wish list button
+        // MARK: my wish list button tap area
         NSLayoutConstraint.activate([
-            myWishListButton.topAnchor.constraint(equalTo: myWishListButtonView.topAnchor, constant: 10), // y좌표
-            myWishListButton.centerXAnchor.constraint(equalTo: myWishListButtonView.centerXAnchor) // x좌표
+            myWishListButtonTapArea.topAnchor.constraint(equalTo: myWishListButtonView.topAnchor),
+            myWishListButtonTapArea.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            myWishListButtonTapArea.leadingAnchor.constraint(equalTo: myWishListButtonView.leadingAnchor),
+            myWishListButtonTapArea.trailingAnchor.constraint(equalTo: myWishListButtonView.trailingAnchor)
         ])
+        
+        // MARK: my wish list button label
+        NSLayoutConstraint.activate([
+            myWishListButtonLabel.topAnchor.constraint(equalTo: myWishListButtonView.topAnchor, constant: 10),
+            myWishListButtonLabel.centerXAnchor.constraint(equalTo: myWishListButtonView.centerXAnchor)
+        ])
+        
+        
         
         //MARK: button stack view
         addOrSkipButtonStackView.distribution = .fillProportionally
