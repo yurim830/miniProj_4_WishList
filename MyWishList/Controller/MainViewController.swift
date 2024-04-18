@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MainViewController: UIViewController {
     
@@ -27,12 +28,15 @@ class MainViewController: UIViewController {
     }
     
     var currentProduct: Product? = nil
+    var persistentContainer: NSPersistentContainer? {
+        (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer
+    }
     
 //    override func loadView() {
 //        super.loadView()
 //        self.updateView()
 //    }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateView()
@@ -122,6 +126,20 @@ class MainViewController: UIViewController {
             }
         }
         task.resume()
+    }
+    
+    // MARK: - Core Data
+    // 데이터 쓰기 (Create)
+    func saveData() {
+        guard let context = self.persistentContainer?.viewContext else { return }
+        guard let currentProduct = self.currentProduct else { return }
+        
+        let newProduct = MyProduct(context: context)
+        
+        newProduct.id = Int32(currentProduct.id)
+        newProduct.title = currentProduct.title
+        
+        try? context.save()
     }
     
 }
