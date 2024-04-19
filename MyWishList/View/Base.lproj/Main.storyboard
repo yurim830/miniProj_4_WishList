@@ -81,14 +81,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qe7-2T-Yk6" userLabel="Product details">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="633.66666666666663"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:FQh-PX-NcY:image" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FQh-PX-NcY">
-                                                <rect key="frame" x="15" y="2.3333333333333428" width="363" height="359.99999999999989"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:FQh-PX-NcY:image" translatesAutoresizingMaskIntoConstraints="NO" id="FQh-PX-NcY">
+                                                <rect key="frame" x="15" y="0.0" width="363" height="363"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="FQh-PX-NcY" secondAttribute="height" id="sDo-2D-Iqn"/>
                                                 </constraints>
                                             </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6r3-qa-fH3">
-                                                <rect key="frame" x="15" y="383" width="363" height="78"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6r3-qa-fH3" userLabel="title, description">
+                                                <rect key="frame" x="15" y="393" width="363" height="78"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kUt-Mb-LsB">
                                                         <rect key="frame" x="0.0" y="0.0" width="363" height="32.333333333333336"/>
@@ -104,7 +104,7 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ztf-7T-N1J">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ztf-7T-N1J" userLabel="price">
                                                 <rect key="frame" x="15" y="531" width="363" height="102.66666666666663"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="출고가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ou2-JJ-wX2">
@@ -155,7 +155,7 @@
                                             <constraint firstItem="ztf-7T-N1J" firstAttribute="leading" secondItem="Qe7-2T-Yk6" secondAttribute="leading" constant="15" id="Alw-Al-nAg"/>
                                             <constraint firstAttribute="trailing" secondItem="FQh-PX-NcY" secondAttribute="trailing" constant="15" id="eLx-tn-DvQ"/>
                                             <constraint firstAttribute="trailing" secondItem="ztf-7T-N1J" secondAttribute="trailing" constant="15" id="kec-te-BLG"/>
-                                            <constraint firstItem="6r3-qa-fH3" firstAttribute="top" secondItem="FQh-PX-NcY" secondAttribute="bottom" constant="20" id="oVK-gQ-GLp"/>
+                                            <constraint firstItem="6r3-qa-fH3" firstAttribute="top" secondItem="FQh-PX-NcY" secondAttribute="bottom" constant="30" id="oVK-gQ-GLp"/>
                                             <constraint firstItem="6r3-qa-fH3" firstAttribute="leading" secondItem="Qe7-2T-Yk6" secondAttribute="leading" constant="15" id="v6Q-9V-6To"/>
                                         </constraints>
                                     </view>
@@ -204,7 +204,7 @@
     </scenes>
     <resources>
         <image name="cart.badge.plus" catalog="system" width="128" height="106"/>
-        <image name="imageView:FQh-PX-NcY:image" catalog="system" width="128" height="78">
+        <image name="imageView:FQh-PX-NcY:image" width="128" height="78">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T
 S2V5ZWRBcmNoaXZlctEICVRyb290gAGvEBELDBscIRkmKywzNjlDS0xQU1UkbnVsbNcNDg8QERITFBUW
