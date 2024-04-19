@@ -45,14 +45,15 @@ class MainViewController: UIViewController {
     @IBOutlet weak var myWishListButtonLabel: UIButton!
     @IBOutlet weak var myWishListButtonView: UIView!
     @IBOutlet weak var myWishListButtonTapArea: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBAction func tappedSkipButton(_ sender: UIButton) {
         fetchNewProduct()
     }
-    
     @IBAction func tappedAddButton(_ sender: UIButton) {
         saveData()
     }
+    
     
     @IBAction func tappedMyWishList(_ sender: UIButton) {
         let wishListStoryBoard = UIStoryboard(name: "MyWishList", bundle: nil)
@@ -69,6 +70,7 @@ class MainViewController: UIViewController {
         configureUI()
         setupConstraints()
         fetchNewProduct()
+        
     }
     
 //    func updateView() { // 적합하지 않음
@@ -221,5 +223,9 @@ class MainViewController: UIViewController {
         
         
     }
+    
+    // MARK: - Scroll View Refresh
+    let refresh = UIRefreshControl()
+    
     
 }
