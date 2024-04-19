@@ -18,6 +18,7 @@
 		1A15CB5F2BCE74BF0075B529 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A15CB5E2BCE74BF0075B529 /* Product.swift */; };
 		1A60B63C2BD0F4F800650093 /* MyWishList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A60B63B2BD0F4F800650093 /* MyWishList.storyboard */; };
 		1A60B63E2BD0F77700650093 /* MyWishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A60B63D2BD0F77700650093 /* MyWishListViewController.swift */; };
+		1AD1D26A2BD20B5100ECF15A /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD1D2692BD20B5100ECF15A /* ScrollViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		1A15CB5E2BCE74BF0075B529 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		1A60B63B2BD0F4F800650093 /* MyWishList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyWishList.storyboard; sourceTree = "<group>"; };
 		1A60B63D2BD0F77700650093 /* MyWishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyWishListViewController.swift; sourceTree = "<group>"; };
+		1AD1D2692BD20B5100ECF15A /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				1A15CB462BCE51940075B529 /* ViewController.swift */,
 				1A15CB592BCE643A0075B529 /* MainViewController.swift */,
 				1A60B63D2BD0F77700650093 /* MyWishListViewController.swift */,
+				1AD1D2692BD20B5100ECF15A /* ScrollViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				1A15CB4D2BCE51940075B529 /* MyWishList.xcdatamodeld in Sources */,
 				1A60B63E2BD0F77700650093 /* MyWishListViewController.swift in Sources */,
 				1A15CB472BCE51940075B529 /* ViewController.swift in Sources */,
+				1AD1D26A2BD20B5100ECF15A /* ScrollViewController.swift in Sources */,
 				1A15CB432BCE51940075B529 /* AppDelegate.swift in Sources */,
 				1A15CB5F2BCE74BF0075B529 /* Product.swift in Sources */,
 				1A15CB452BCE51940075B529 /* SceneDelegate.swift in Sources */,
