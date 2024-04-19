@@ -218,8 +218,6 @@ class MainViewController: UIViewController {
         myWishListButtonView.layer.cornerRadius = 20
         myWishListButtonView.layer.borderWidth = 1
         myWishListButtonView.layer.borderColor = UIColor.systemGray4.cgColor
-        myWishListButtonLabel.isEnabled = false
-        myWishListButtonLabel.titleLabel?.textColor = UIColor.blue
         
         
     }
