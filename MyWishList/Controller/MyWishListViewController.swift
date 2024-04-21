@@ -86,9 +86,11 @@ extension MyWishListViewController: UITableViewDataSource {
     
     // 스와이프하여 삭제
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        myProductList.remove(at: indexPath.row) // 이게 없으면 에러남... 왠지는 모르겠음
-        tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-        deleteProduct(indexPath.row)
+        if editingStyle == .delete { // editingStyle이 delete일 경우 실행.(none/delete/insert)
+            myProductList.remove(at: indexPath.row)
+            deleteProduct(indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        }
     }
     
 }

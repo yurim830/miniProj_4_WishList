@@ -123,8 +123,9 @@ class MainViewController: UIViewController {
     private func fetchNewProduct() {
         print("fetchNewProduct 스레드: ", Thread.current)
         // 1. URLSession 인스턴스 생성
-        let configuration = URLSessionConfiguration.default
-        let session = URLSession(configuration: configuration)
+        let configuration = URLSessionConfiguration.default // 헤더, 와이파이 설정 등 다양한 네트워킹 설정을 할 수 있음
+        let session = URLSession(configuration: configuration) // configuration 전달하여 URLSession 만들기
+        // 그런데 특별히 configure할 거 없는 간단한 요청일 경우, URLSession에서 제공하는 URLSession.shared 사용해도 됨!
         
         // 2. url 생성
         let productID = Int.random(in: 1...100)
@@ -134,7 +135,7 @@ class MainViewController: UIViewController {
         let task = session.dataTask(with: url) { data, response, error in
             print("데이터 요청 스레드: ", Thread.current)
             // 3-1. 성공한 응답 걸러내기
-            guard let httpResponse = response as? HTTPURLResponse,
+            guard let httpResponse = response as? HTTPURLResponse, // URLResponse 타입인 response를 HTTPURLResponse 타입으로 바꾸기(http 요청이기 때문)
                   (200..<300).contains(httpResponse.statusCode) else {
                 print("error: \(error)")
                 return
@@ -146,7 +147,7 @@ class MainViewController: UIViewController {
             // 3-3. 디코딩
             do {
                 let decoder = JSONDecoder()
-                let product = try decoder.decode(Product.self, from: data)
+                let product = try decoder.decode(Product.self, from: data) // 타입 자체를 가져올땐 .self
                 self.currentProduct = product
             } catch let error as NSError {
                 print("decoding error: \(error)")
