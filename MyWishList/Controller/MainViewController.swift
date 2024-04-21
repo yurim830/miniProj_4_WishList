@@ -15,10 +15,12 @@ class MainViewController: UIViewController {
     
     var currentProduct: Product? = nil { // currentProduct가 set되면 UIComponents에 값 지정
         didSet {
-            DispatchQueue.main.async { // didSet은 메인스레드에서 실행되는 것을 보장하지 않으므로 main 스레드에서 실행될 것을 보장해야 함.
+            // didSet은 메인스레드에서 실행되는 것을 보장하지 않으므로 main 스레드에서 실행될 것을 보장해야 함
+            DispatchQueue.main.async {
                 // 애니메이션 옵션 설정
                 let options: UIView.AnimationOptions = [.transitionCrossDissolve, .allowUserInteraction]
-                // 애니메이션 적용
+                
+                // 애니메이션 적용하여 뷰 새로고침
                 UIView.transition(
                     with: self.view,
                     duration: 0.3,
@@ -70,7 +72,7 @@ class MainViewController: UIViewController {
         configureUI()
         setupConstraints()
         fetchNewProduct()
-        
+        setRefreshControl()
     }
     
 //    func updateView() { // 적합하지 않음
@@ -226,7 +228,18 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Scroll View Refresh
-    let refresh = UIRefreshControl()
+    func setRefreshControl() {
+        self.scrollView.refreshControl = UIRefreshControl() // refreshControl 생성 (사라지게도 해야 함)
+        self.scrollView.refreshControl?.addTarget(self,
+                                                  action: #selector(refresh),
+                                                  for: .valueChanged)
+    }
+    
+    @objc
+    func refresh() {
+        fetchNewProduct()
+        self.scrollView.refreshControl?.endRefreshing() // refreshControl 끝내기
+    }
     
     
 }
